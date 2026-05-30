@@ -366,7 +366,9 @@
   }
 
   termRoot.addEventListener("mousedown", () => window.requestAnimationFrame(focusInput));
-  gitHubLink.addEventListener("click", (event) => event.preventDefault());
+  if (gitHubLink.getAttribute("href") === "#") {
+    gitHubLink.addEventListener("click", (event) => event.preventDefault());
+  }
   window.addEventListener("beforeunload", () => timers.forEach(window.clearTimeout));
 
   render();
